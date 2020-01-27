@@ -1,0 +1,27 @@
+%matplotlib inline
+
+import math
+import random
+
+import numpy
+import matplotlib.pyplot as plt
+
+dt = 0.001  # simulation time step
+t_rc = 0.02  # membrane RC time constant
+t_ref = 0.002  # refractory period
+t_pstc = 0.1  # post-synaptic time constant
+N_A = 50  # number of neurons in first population
+N_B = 40  # number of neurons in second population
+N_samples = 100  # number of sample points to use when finding decoders
+rate_A = 25, 75  # range of maximum firing rates for population A
+rate_B = 50, 100  # range of maximum firing rates for population B
+
+
+def input(t):
+    """The input to the system over time"""
+    return math.sin(t)
+
+
+def function(x):
+    """The function to compute between A and B."""
+    return x * x
